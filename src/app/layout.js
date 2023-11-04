@@ -1,14 +1,10 @@
-import React from 'react';
-import {
-  Work_Sans,
-  Spline_Sans_Mono,
-} from 'next/font/google';
 import clsx from 'clsx';
+import { Spline_Sans_Mono, Work_Sans } from 'next/font/google';
 
-import { LIGHT_TOKENS, DARK_TOKENS } from '@/constants';
+import { BLOG_TITLE, DARK_TOKENS, LIGHT_TOKENS } from '@/constants';
 
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import './styles.css';
 
 const mainFont = Work_Sans({
@@ -23,6 +19,11 @@ const monoFont = Spline_Sans_Mono({
   weight: 'variable',
   variable: '--font-family-mono',
 });
+
+export const metadata = {
+  title: BLOG_TITLE,
+  description: 'Practice MDX blog from Joy of React',
+};
 
 function RootLayout({ children }) {
   // TODO: Dynamic theme depending on user preference
