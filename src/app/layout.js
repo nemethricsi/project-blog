@@ -1,7 +1,13 @@
 import clsx from 'clsx';
 import { Spline_Sans_Mono, Work_Sans } from 'next/font/google';
+import { cookies } from 'next/headers';
 
-import { BLOG_TITLE, DARK_TOKENS, LIGHT_TOKENS } from '@/constants';
+import {
+  BLOG_TITLE,
+  COLOR_THEME_COOKIE,
+  DARK_TOKENS,
+  LIGHT_TOKENS,
+} from '@/constants';
 
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
@@ -26,8 +32,7 @@ export const metadata = {
 };
 
 function RootLayout({ children }) {
-  // TODO: Dynamic theme depending on user preference
-  const theme = 'light';
+  const theme = cookies().get(COLOR_THEME_COOKIE).value || 'light';
 
   return (
     <html
@@ -37,7 +42,7 @@ function RootLayout({ children }) {
       style={theme === 'light' ? LIGHT_TOKENS : DARK_TOKENS}
     >
       <body>
-        <Header theme={theme} />
+        <Header initialTheme={theme} />
         <main>{children}</main>
         <Footer />
       </body>
