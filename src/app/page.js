@@ -1,5 +1,3 @@
-import React from 'react';
-
 import BlogSummaryCard from '@/components/BlogSummaryCard';
 import { getBlogPostList } from '@/helpers/file-helpers';
 
@@ -12,7 +10,6 @@ async function Home() {
     <div className={styles.wrapper}>
       <h1 className={styles.mainHeading}>Latest Content:</h1>
 
-      {/* TODO: Iterate over the data read from the file system! */}
       {blogPosts.map((post) => (
         <BlogSummaryCard
           key={post.slug}
